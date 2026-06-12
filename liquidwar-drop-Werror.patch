@@ -1,0 +1,17 @@
+Source: https://abf.io/import/liquidwar6/
+
+---
+
+diff --git a/configure.ac b/configure.ac
+index dc3d715..2034d0d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -932,7 +932,7 @@ LW6_MAC_OS_X_CFLAGS=""
+ LW6_GP2X_CFLAGS=""
+ 
+ if test "x${lw6_gnu}" = "xyes" ; then
+-   LW6_GNU_CFLAGS="-DLW6_GNU -Werror"
++   LW6_GNU_CFLAGS="-DLW6_GNU"
+ fi
+ if test "x${lw6_unix}" = "xyes" ; then
+    LW6_UNIX_CFLAGS="-DLW6_UNIX"

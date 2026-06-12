@@ -1,0 +1,26 @@
+Source: https://abf.io/import/liquidwar6/
+
+---
+
+diff --git a/liquidwar6/configure.ac b/liquidwar6/configure.ac
+index dc3d715..f8f61b4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -267,7 +267,7 @@ AC_CHECK_HEADER(gmp.h, HAVE_GMP_H=1, AC_MSG_WARN([
+ AC_CHECK_HEADER(gc/gc.h, HAVE_GC_GC_H=1, AC_MSG_NOTICE([Liquid War 6 can need libgc because of Guile (https://launchpad.net/libgc)]))
+ AC_CHECK_HEADER(libguile.h, HAVE_LIBGUILE1_H=1)
+ AC_CHECK_HEADER(guile/1.8/libguile.h, HAVE_LIBGUILE1_H=1)
+-AC_CHECK_HEADER(guile/2.0/libguile.h, HAVE_LIBGUILE2_H=1)
++AC_CHECK_HEADER(guile/2.2/libguile.h, HAVE_LIBGUILE2_H=1)
+ if test x${HAVE_LIBGUILE1} != x1 && test x${HAVE_LIBGUILE2} != x1; then
+    # OK this is a notice and not an error, for some
+    # reason guile/2.0/libguile.h is not detected, in fact
+@@ -306,7 +306,7 @@ if test "x${lw6_ms_windows}" != "xyes" && test "x${lw6_gp2x}" != "xyes" ; then
+    if guile-config --version 2> /dev/null ; then
+       GUILE_LDFLAGS=`guile-config link`
+       AC_CHECK_LIB(guile, scm_with_guile, HAVE_LIBGUILE1=1, AC_MSG_NOTICE([Liquid War 6 needs Guile (http://www.gnu.org/software/guile/)]), [$GUILE_LDFLAGS])
+-      AC_CHECK_LIB(guile-2.0, scm_with_guile, HAVE_LIBGUILE2=1, AC_MSG_NOTICE([Liquid War 6 needs Guile (http://www.gnu.org/software/guile/)]), [$GUILE_LDFLAGS])
++      AC_CHECK_LIB(guile-2.2, scm_with_guile, HAVE_LIBGUILE2=1, AC_MSG_NOTICE([Liquid War 6 needs Guile (http://www.gnu.org/software/guile/)]), [$GUILE_LDFLAGS])
+       if test x${HAVE_LIBGUILE1} != x1 && test x${HAVE_LIBGUILE2} != x1; then
+       AC_MSG_ERROR([
+ *** Liquid War 6 needs Guile 1.8 or 2.0 (http://www.gnu.org/software/guile/)

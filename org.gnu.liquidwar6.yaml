@@ -1,6 +1,6 @@
 app-id: org.gnu.liquidwar6
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: liquidwar6
 rename-icon: liquidwar6
@@ -11,23 +11,28 @@ finish-args:
   - --share=ipc
   - --device=dri
   - --persist=.liquidwar6
-
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/aclocal
+  - /share/cmake
+  - /share/doc
+  - /share/info
+  - /share/man
+  - /share/pixmaps
+  - /share/samples
+  - '*.la'
+  - '*.a'
 modules:
-  - shared-modules/glu/glu-9.json
-
-  - name: sdl12-compat
-    buildsystem: cmake-ninja
-    sources:
-      - type: archive
-        url: https://github.com/libsdl-org/sdl12-compat/archive/refs/tags/release-1.2.52.tar.gz
-        sha256: 5bd7942703575554670a8767ae030f7921a0ac3c5e2fd173a537b7c7a8599014
-
+  - shared-modules/SDL/sdl12-compat.json
   - shared-modules/SDL/SDL_image-1.2.12.json
   - shared-modules/SDL/SDL_mixer-1.2.12.json
   - shared-modules/SDL/SDL_ttf-2.0.11.json
 
   - name: gc
     buildsystem: autotools
+    config-opts:
+      - --disable-docs
     sources:
       - type: archive
         url: http://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
@@ -42,10 +47,14 @@ modules:
 
   - name: guile
     buildsystem: autotools
+    config-opts:
+      - --disable-error-on-warning
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/guile/guile-2.0.14.tar.xz
-        sha256: e8442566256e1be14e51fc18839cd799b966bc5b16c6a1d7a7c35155a8619d82
+        url: https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
+        sha256: d9e8b94af7b206fcf52bec6501b921bd7d0bd7a31fb7e896a35ba8253678e31e
+      - type: patch
+        path: guile-never-recompile.patch
 
   - name: libcaca
     config-opts:
@@ -61,13 +70,14 @@ modules:
   - name: csound
     buildsystem: cmake-ninja
     build-options:
+      cxxflags: -Wno-error=template-body
       env:
         PYTHONHOME: /app
-        PYTHONPATH: /usr/lib/python3.11
+        PYTHONPATH: /usr/lib/python3.13
     sources:
-    - type: archive
-      url: https://github.com/csound/csound/archive/refs/tags/6.18.1.tar.gz
-      sha256: b84be8237fa9258ef60fdddf36fae27b20c11665811bf5ed12540da9a9a4414e
+      - type: archive
+        url: https://github.com/csound/csound/archive/refs/tags/6.18.1.tar.gz
+        sha256: b84be8237fa9258ef60fdddf36fae27b20c11665811bf5ed12540da9a9a4414e
 
   - name: liquidwar6
     buildsystem: autotools
@@ -76,14 +86,18 @@ modules:
       - --disable-static
       - --disable-rpath
     build-options:
-      cflags: -Wno-error=deprecated-declarations -Wno-error=address -Wno-error=use-after-free
+      cflags: -Wno-error=deprecated-declarations -Wno-error=address -Wno-error=use-after-free -std=gnu17
     post-install:
-      - install -D /app/share/pixmaps/liquidwar6.png /app/share/icons/hicolor/128x128/apps/liquidwar6.png
-      - install -Dm644 org.gnu.liquidwar6.metainfo.xml /app/share/metainfo/org.gnu.liquidwar6.metainfo.xml
+      - install -Dm644 /app/share/pixmaps/liquidwar6.png -t /app/share/icons/hicolor/128x128/apps/
+      - install -Dm644 org.gnu.liquidwar6.metainfo.xml -t /app/share/metainfo/
     sources:
       - type: archive
         url: http://ftp.gnu.org/gnu/liquidwar6/liquidwar6-0.6.3902.tar.gz
         sha256: d605549afae403439524e572322e45ebf5b6db8ea59505e5d51cb581a8b5e6a4
+      - type: patch
+        paths:
+          - liquidwar-drop-Werror.patch
+          - liquidwar-guile22.patch
       - type: shell
         commands:
           - autoreconf -ivf

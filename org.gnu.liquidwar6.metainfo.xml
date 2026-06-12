@@ -4,7 +4,9 @@
   <id>org.gnu.liquidwar6</id>
   <name>Liquid War 6</name>
   <summary>Quick tactics game</summary>
-  <developer_name translate="no">GNU</developer_name>
+  <developer id="org.gnu">
+    <name>GNU</name>
+  </developer>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <description>
@@ -15,30 +17,31 @@
       <li>13 levels, each one twisting the gameplay in a new direction</li>
       <li>100+ more levels if you download the bonus pack</li>
       <li>Levels can be created using simple image files</li>
-      <li>Lots of level design options: walls, edge wraparound, bridges, different speed, special areas such as glue or danger and varied army size and fighter behavior</li>
+      <li>Lots of level design options: walls, edge wraparound, bridges, different speed, special areas such as
+        glue or danger and varied army size and fighter behavior</li>
     </ul>
   </description>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-fishy-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtMV9vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-fivepoints-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtMl9vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-january-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtM19vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-acadia-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtNF9vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-playfield-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtNV9vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-strangenewworld-20111607.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtNl9vcmlnLnBuZw</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://www.gnu.org/software/liquidwar6/images/liquidwar6-screenshot-pizzaface-20111707.jpg</image>
+      <image type="source">https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9vcmcvZ251L2xpcXVpZHdhcjYvZGUzODAzZWNkMGQzNzVhZGViMjczNTk0ZjA1NjNmMGIvc2NyZWVuc2hvdHMvaW1hZ2UtN19vcmlnLnBuZw</image>
     </screenshot>
   </screenshots>
   <releases>
